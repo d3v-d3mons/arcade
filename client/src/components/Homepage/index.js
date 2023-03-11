@@ -9,17 +9,7 @@ export default function Homepage () {
     const [nickname, setNickname] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    // const [formState, setFormState] = useState({ firstName: '', lastName: '', nickname: '', email: '', password: '' });
     const [addUser] = useMutation(ADD_USER);
-    // create error handling and display errors on the front end later
-
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     setFormState({
-    //         ...formState,
-    //         [name]: value,
-    //     });
-    // };
 
     const handleNewUserForm = async (e) => {
         e.preventDefault();
@@ -35,6 +25,7 @@ export default function Homepage () {
             // add error display later
             return;
         }
+        try {
         const mutationResponse = await addUser({
             variables: {
                 firstName: firstName,
@@ -46,16 +37,19 @@ export default function Homepage () {
         });
         const token = mutationResponse.data.addUser.token;
         auth.login(token);
+    } catch (err) {
+        console.error(err);
+    }
     }
 
     return (
         <div className='formContainer'>
             <form onSubmit={handleNewUserForm}>
-                <input value={firstName} onChange={setFirstName} className='firstName' placeholder='enter your first name'></input>
-                <input value={lastName} onChange={setLastName} className='lastName' placeholder='enter your last name'></input>
-                <input value={nickname} onChange={setNickname} className='nickname' placeholder='enter a nickname'></input>
-                <input value={email} onChange={setEmail} className='email' placeholder='enter your email here'></input>
-                <input value={password} onChange={setPassword} className='password' placeholder='enter your password here'></input>
+                <input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text" className='firstName' placeholder='enter your first name'></input>
+                <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="lastName" className='lastName' placeholder='enter your last name'></input>
+                <input value={nickname} onChange={(e) => setNickname(e.target.value)} className='nickname' placeholder='enter a nickname'></input>
+                <input value={email} onChange={(e) => setEmail(e.target.value)} className='email' placeholder='enter your email here'></input>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} className='password' placeholder='enter your password here'></input>
                 <button className='submitbtn' type='submit'></button>
             </form>
         </div>
