@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import auth from '../../utils/auth';
 import { ADD_USER } from '../../utils/mutations';
-import { Input, Button } from '@chakra-ui/react';
+import { Input, Button, Form } from '@chakra-ui/react';
 
 export default function Homepage () {
     const [firstName, setFirstName] = useState("");
@@ -44,15 +44,12 @@ export default function Homepage () {
     }
 
     return (
-        <div className='formContainer'>
-            <form onSubmit={handleNewUserForm}>
-                <Input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="text" className='firstName' placeholder='enter your first name' />
-                <Input value={lastName} onChange={(e) => setLastName(e.target.value)} type="lastName" className='lastName' placeholder='enter your last name' />
-                <Input value={nickname} onChange={(e) => setNickname(e.target.value)} className='nickname' placeholder='enter a nickname' /> 
-                <Input value={email} onChange={(e) => setEmail(e.target.value)} className='email' placeholder='enter your email here' />
-                <Input value={password} onChange={(e) => setPassword(e.target.value)} className='password' placeholder='enter your password here' />
-                <Button className='submitbtn' type='submit' colorScheme="blue">Create an Account</Button>
-            </form>
+        <div>
+            {auth.loggedIn() ? (
+                <h1>Logged in</h1>
+            ) : (
+                <h1>Logged out</h1>
+            )}
         </div>
     )
 };
