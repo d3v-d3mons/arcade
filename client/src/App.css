@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+
+/* body {
+  background-image:url('./images/snake_game.png');
+} */
+
+/* main styles */
+
+.header {
+  text-align: center;
+  background-color: #00a028;
+  padding: .5rem;
+}
+
+.navBar {
+  text-align: center;
+  padding: .5rem;
+}
+
+#navHomeBtn {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navOurStoryBtn {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navHomeBtn:hover {
+  background-color: #949fb5;
+}
+
+#navOurStoryBtn:hover {
+  background-color: #949fb5;
+}
+
+footer {
+  text-align: center;
+}

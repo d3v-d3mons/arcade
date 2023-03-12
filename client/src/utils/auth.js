@@ -1,6 +1,6 @@
 import decode from 'jwt-decode';
 
-export default class AuthService {
+class AuthService {
   getProfile() {
     return decode(this.getToken());
   }
@@ -40,6 +40,6 @@ export default class AuthService {
     // this will reload the page and reset the state of the application
     window.location.assign('/');
   }
-};
+}
 
-// export default new AuthService();
+export default new AuthService();
