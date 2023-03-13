@@ -13,6 +13,8 @@ import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import OurStory from "./components/OurStory";
 import Board from "./components/Snake";
+import Feedback from "./components/Feedback";
+import Scoreboard from "./components/Scoreboard";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -58,7 +60,16 @@ function App() {
                 </>
               }
             />
-            <Route path="/snake" element={<><Board /></>} />
+            <Route
+              path="/snake"
+              element={
+                <>
+                  <Board />
+                </>
+              }
+            />
+            <Route path="/feedback" element={<><Feedback /></>} />
+            <Route path="/scoreboard" element={<><Scoreboard /></>} />
           </Routes>
           <Footer />
         </Router>

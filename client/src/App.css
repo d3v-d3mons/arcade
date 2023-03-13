@@ -50,8 +50,8 @@
 }
 
 .navBar {
-  text-align: center;
   padding: .5rem;
+  text-align: center;
 }
 
 #navHomeBtn {
@@ -70,11 +70,67 @@
   border-radius: .70rem;
 }
 
+#navScoreboard {
+  border: solid;
+  background-color: #6d9ba8;
+  color: #ffffff;;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navLogin {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navLogout {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navFeedback {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
+#navNoScoreboard {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
+}
+
 #navHomeBtn:hover {
   background-color: #949fb5;
 }
 
 #navOurStoryBtn:hover {
+  background-color: #949fb5;
+}
+
+#navScoreboard:hover {
+  background-color: #42597a;
+}
+
+#navLogin:hover {
+  background-color: #949fb5;
+}
+
+#navLogout:hover {
+  background-color: #949fb5;
+}
+
+#navFeedback:hover {
   background-color: #949fb5;
 }
 
