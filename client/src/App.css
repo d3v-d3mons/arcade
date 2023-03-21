@@ -108,8 +108,7 @@ footer {
 /* HOMEPAGE */
 .createGameBtn {
   text-align: center;
-  margin-left: 45%;
-  margin-right: 45%;
+  width: fit-content;
   margin-top: .5rem;
   background-color: #565c69;
 }
