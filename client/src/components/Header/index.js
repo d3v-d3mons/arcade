@@ -59,8 +59,9 @@ export default function Header() {
       });
       const token = mutationResponse.data.addUser.token;
       auth.login(token);
+      window.location.assign("");
     } catch (err) {
-      console.error(err);
+      alert(err);
     }
   };
 
@@ -110,11 +111,11 @@ export default function Header() {
     <>
       <div className="header">
         <Heading as="h1" size="2xl">
-          This is a header say hi
+          Tee Time
         </Heading>
       </div>
       <div className="navBar">
-        <Breadcrumb separator="-" className="navBar">
+        <Breadcrumb separator=""className="navBar">
           <BreadcrumbItem>
             <BreadcrumbLink
               id="navHomeBtn"
@@ -132,30 +133,33 @@ export default function Header() {
             </BreadcrumbLink>
           </BreadcrumbItem>
           {auth.loggedIn() ? (
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              id="navScoreboard"
-              className={activeItem === "/scoreboard" ? "activeTab" : ""}
-            >
-              <Link to="/scoreboard">Leaderboard</Link>
+            <>
+            <BreadcrumbItem>
+              <BreadcrumbLink
+                id="navScorecard"
+                className={activeItem === "/scorecard" ? "activeTab" : ""}
+              >
+                <Link to="/scorecard">Scorecard</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+            <BreadcrumbLink id="navFeedback">
+              <Link to="/newplayer">Add Players</Link>
             </BreadcrumbLink>
-          </BreadcrumbItem>
-          ) : (<BreadcrumbItem><BreadcrumbLink id="navNoScoreboard">Log in to access scoreboard</BreadcrumbLink></BreadcrumbItem>)}
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              id="navFeedback"
-              className={activeItem === "/feedback" ? "activeTab" : ""}
-            >
-              <Link to="/feedback">Feedback</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {auth.loggedIn() ? (
+            </BreadcrumbItem>
             <BreadcrumbItem>
               <BreadcrumbLink onClick={logOut} id="navLogout">
                 Log Out
               </BreadcrumbLink>
             </BreadcrumbItem>
+            </>
           ) : (
+            <>
+            <BreadcrumbItem>
+              <BreadcrumbLink id="navNoScorecard">
+                Log in or create an account to access scorecard
+              </BreadcrumbLink>
+            </BreadcrumbItem>
             <BreadcrumbItem>
               <BreadcrumbLink onClick={onOpen} id="navLogin">
                 Login/Signup
@@ -244,6 +248,7 @@ export default function Header() {
                 </ModalContent>
               </Modal>
             </BreadcrumbItem>
+            </>
           )}
         </Breadcrumb>
       </div>

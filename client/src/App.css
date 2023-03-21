@@ -1,45 +1,12 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  color:#E3EEEB;
+  background-position-x: relative;
+  background-position-y: relative;
+  background-attachment: fixed;
+  background-image:url('./images/country_club.jpg'); 
+  height: 100%;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* body {
-  background-image:url('./images/snake_game.png');
-} */
 
 /* main styles */
 
@@ -70,7 +37,7 @@
   border-radius: .70rem;
 }
 
-#navScoreboard {
+#navScorecard {
   border: solid;
   background-color: #6d9ba8;
   color: #ffffff;;
@@ -102,7 +69,7 @@
   border-radius: .70rem;
 }
 
-#navNoScoreboard {
+#navNoScorecard {
   border: solid;
   background-color: #565c69;
   color: #ffffff;
@@ -118,7 +85,11 @@
   background-color: #949fb5;
 }
 
-#navScoreboard:hover {
+#navScorecard:hover {
+  background-color: #42597a;
+}
+
+#navNoScorecard:hover {
   background-color: #42597a;
 }
 
@@ -136,4 +107,35 @@
 
 footer {
   text-align: center;
+}
+
+/* build a match */
+.tabletop {
+  border: solid;
+}
+
+/* SCORECARD STYLING */
+.scores {
+  border: solid;
+  padding: .5rem;
+  margin: 1rem;
+}
+
+/* HOMEPAGE */
+.createGameBtn {
+  text-align: center;
+  margin-left: 45%;
+  margin-right: 45%;
+  margin-top: .5rem;
+  background-color: #565c69;
+}
+
+.ourStory {
+  border: solid;
+  text-align: center;
+  margin-right: 20%;
+  margin-left: 20%;
+  padding: 1rem;
+  border-radius: .7rem;
+  background-color: #00a028;
 }

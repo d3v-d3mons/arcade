@@ -7,14 +7,17 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import React from "react";
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react'
 import { ChakraProvider } from "@chakra-ui/react";
+import GameProvider from "./utils/GameContext";
 
 import Header from "./components/Header";
 import Homepage from "./components/Homepage";
 import OurStory from "./components/OurStory";
-import Board from "./components/Snake";
 import Feedback from "./components/Feedback";
-import Scoreboard from "./components/Scoreboard";
+import Scorecard from "./components/Scorecard";
+import NewPlayer from "./components/NewPlayer";
 import Footer from "./components/Footer";
 import "./App.css";
 
@@ -37,8 +40,15 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const emotionCache = createCache({
+  key: 'emotion-css-cache',
+  prepend: true,
+});
+
 function App() {
   return (
+    <GameProvider>
+    <CacheProvider value={emotionCache}>
     <ChakraProvider>
       <ApolloProvider client={client}>
         <Router>
@@ -48,33 +58,21 @@ function App() {
               path="/"
               element={
                 <>
+                  <OurStory />
                   <Homepage />
                 </>
               }
             />
-            <Route
-              path="/ourstory"
-              element={
-                <>
-                  <OurStory />
-                </>
-              }
-            />
-            <Route
-              path="/snake"
-              element={
-                <>
-                  <Board />
-                </>
-              }
-            />
             <Route path="/feedback" element={<><Feedback /></>} />
-            <Route path="/scoreboard" element={<><Scoreboard /></>} />
+            <Route path="/scorecard" element={<><Scorecard /></>} />
+            <Route path="/newplayer" element={<><NewPlayer /></>} />
           </Routes>
           <Footer />
         </Router>
       </ApolloProvider>
     </ChakraProvider>
+    </CacheProvider>
+    </GameProvider>
   );
 }
 

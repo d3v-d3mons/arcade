@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
+const Game = require('./Game');
 // require high score model when it is finished
 
 const userSchema = new Schema({
@@ -29,7 +30,7 @@ const userSchema = new Schema({
         required: true,
         unique: true,
     },
-    // include high scores here
+    game: [Game.schema]
 });
 
 userSchema.pre('save', async function(next) {
