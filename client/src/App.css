@@ -111,6 +111,8 @@ footer {
   width: fit-content;
   margin-top: .5rem;
   background-color: #565c69;
+  border: solid;
+  border-color: black;
 }
 
 .ourStory {
@@ -121,4 +123,6 @@ footer {
   padding: 1rem;
   border-radius: .7rem;
   background-color: #00a028;
+  border-color: black;
+  opacity: 93%;
 }
