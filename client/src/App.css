@@ -14,6 +14,11 @@ body {
   text-align: center;
   background-color: #00a028;
   padding: .5rem;
+  color: black;
+}
+
+.modal {
+  background-color: #34383f;
 }
 
 .navBar {
