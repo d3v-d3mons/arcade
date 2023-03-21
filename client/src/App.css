@@ -41,7 +41,6 @@ body {
   color: #ffffff;;
   padding: .25rem;
   border-radius: .70rem;
-   margin-left: .98rem;
   border-color: black;
 }
 
@@ -62,14 +61,6 @@ body {
   padding: .25rem;
   border-radius: .70rem;
   border-color: black;
-}
-
-#navFeedback {
-  border: solid;
-  background-color: #565c69;
-  color: #ffffff;
-  padding: .25rem;
-  border-radius: .70rem;
 }
 
 #navNoScorecard {
