@@ -41,6 +41,7 @@ body {
   color: #ffffff;;
   padding: .25rem;
   border-radius: .70rem;
+   margin-left: .98rem;
   border-color: black;
 }
 
@@ -60,8 +61,15 @@ body {
   color: #ffffff;
   padding: .25rem;
   border-radius: .70rem;
-  margin-left: .98rem;
   border-color: black;
+}
+
+#navFeedback {
+  border: solid;
+  background-color: #565c69;
+  color: #ffffff;
+  padding: .25rem;
+  border-radius: .70rem;
 }
 
 #navNoScorecard {
@@ -70,7 +78,6 @@ body {
   color: #ffffff;
   padding: .25rem;
   border-radius: .70rem;
-  border-color: black;
 }
 
 #navHomeBtn:hover {
@@ -105,14 +112,25 @@ footer {
   text-align: center;
 }
 
+/* build a match */
+.tabletop {
+  border: solid;
+}
+
+/* SCORECARD STYLING */
+.scores {
+  border: solid;
+  padding: .5rem;
+  margin: 1rem;
+}
+
 /* HOMEPAGE */
 .createGameBtn {
   text-align: center;
-  width: fit-content;
+  margin-left: 45%;
+  margin-right: 45%;
   margin-top: .5rem;
   background-color: #565c69;
-  border: solid;
-  border-color: black;
 }
 
 .ourStory {
@@ -123,6 +141,4 @@ footer {
   padding: 1rem;
   border-radius: .7rem;
   background-color: #00a028;
-  border-color: black;
-  opacity: 93%;
 }
