@@ -60,6 +60,7 @@ body {
   color: #ffffff;
   padding: .25rem;
   border-radius: .70rem;
+  margin-left: .98rem;
   border-color: black;
 }
 
@@ -69,6 +70,7 @@ body {
   color: #ffffff;
   padding: .25rem;
   border-radius: .70rem;
+  border-color: black;
 }
 
 #navHomeBtn:hover {
@@ -101,18 +103,6 @@ body {
 
 footer {
   text-align: center;
-}
-
-/* build a match */
-.tabletop {
-  border: solid;
-}
-
-/* SCORECARD STYLING */
-.scores {
-  border: solid;
-  padding: .5rem;
-  margin: 1rem;
 }
 
 /* HOMEPAGE */
