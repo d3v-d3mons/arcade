@@ -124,14 +124,6 @@ export default function Header() {
               <Link to="/">Home</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              id="navOurStoryBtn"
-              className={activeItem === "/ourstory" ? "activeTab" : ""}
-            >
-              <Link to="/ourstory">Our Story</Link>
-            </BreadcrumbLink>
-          </BreadcrumbItem>
           {auth.loggedIn() ? (
             <>
             <BreadcrumbItem>
@@ -143,11 +135,6 @@ export default function Header() {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
-            <BreadcrumbLink id="navFeedback">
-              <Link to="/newplayer">Add Players</Link>
-            </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbItem>
               <BreadcrumbLink onClick={logOut} id="navLogout">
                 Log Out
               </BreadcrumbLink>
@@ -157,17 +144,17 @@ export default function Header() {
             <>
             <BreadcrumbItem>
               <BreadcrumbLink id="navNoScorecard">
-                Log in or create an account to access scorecard
+                Sign in for scorecard
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <BreadcrumbLink onClick={onOpen} id="navLogin">
-                Login/Signup
+                Login
               </BreadcrumbLink>
               <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
-                <ModalContent>
-                  <ModalHeader>Login/Signup</ModalHeader>
+                <ModalContent className="modal">
+                  <ModalHeader>Login</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody>
                     <form onSubmit={handleLogin}>
@@ -193,6 +180,7 @@ export default function Header() {
                         Login
                       </Button>
                     </form>
+                    <ModalHeader>Create Account</ModalHeader>
                     <form onSubmit={handleNewUserForm}>
                       <Input
                         value={firstName}

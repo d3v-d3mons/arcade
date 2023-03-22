@@ -1,0 +1,63 @@
+.addScores {
+    border: solid;
+    border-radius: .7rem;
+    padding: .25rem;
+    background-color: #565c69;
+}
+
+.player1Score {
+    display: inline-block;
+}
+
+.player2Score {
+    display: inline-block;
+}
+
+.player3Score {
+    display: inline-block;
+}
+
+.player4Score {
+    display: inline-block;
+}
+
+.getGameInput {
+    width: 50%;
+    border: solid;
+    border-color: black;
+    color: black;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: #00a028;
+}
+
+.holeNumber {
+    font-size: x-large;
+    font-weight: bold;
+    color: black;
+}
+
+.scores {
+    background-color: #00a028;
+    color: black;
+    font-weight: 600;
+    border-radius: .7rem;
+    width: 70%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: .85;
+}
+
+.scorecardPartySearch {
+    border: solid;
+    border-color: black;
+    border-radius: .7rem;
+    background-color: #565c69;
+    padding: .25rem;
+}
+
+h1 {
+    padding: .5rem;
+}
+

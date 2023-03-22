@@ -7,6 +7,7 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Center,
 } from "@chakra-ui/react";
 import { MY_GAME, QUERY_GAMES } from "../../utils/queries";
 import { useLazyQuery, useMutation } from "@apollo/client";
@@ -31,6 +32,7 @@ import {
   ADD_SCORE_EIGHTEEN,
 } from "../../utils/mutations";
 import { getFragmentDefinition } from "@apollo/client/utilities";
+import "./index.css";
 
 export default function Scorecard() {
   const [queryGames] = useLazyQuery(QUERY_GAMES);
@@ -1030,10 +1032,13 @@ export default function Scorecard() {
         className="getGameInput"
         value={partyName}
         onChange={(e) => setPartyName(e.target.value)}
+        placeholder="Party Name:"
       />
-      <button type="click" onClick={getGame}>
+      <Center>
+      <button className="scorecardPartySearch" type="click" onClick={getGame}>
         Get game
       </button>
+      </Center>
       <div className="gameName">
         <h1>{gamePartyName}</h1>
       </div>
@@ -1045,96 +1050,101 @@ export default function Scorecard() {
       </div>
 
       {/*    ----------------- HOLE ONE CARD ----------------    */}
-
-      <div className="hole1 scores">
-        <Box>
-          <div className="holeNumber">
-            <h1>Hole 1</h1>
-          </div>
-          <div className="player1">
-            <h1>
-              Player 1:{player1} Score:
-              <NumberInput
-                size="sm"
-                maxW={20}
-                value={parseInt(player1Score)}
-                defaultValue={0}
-                min={0}
-                onChange={setPlayer1Score}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </h1>
-          </div>
-          <div className="player2">
-            <h1>
-              Player 2:{player2} Score:
-              <NumberInput
-                size="sm"
-                maxW={20}
-                value={parseInt(player2Score)}
-                defaultValue={0}
-                min={0}
-                onChange={setPlayer2Score}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </h1>
-          </div>
-          <div className="player3">
-            <h1>
-              Player 3:{player3} Score:
-              <NumberInput
-                size="sm"
-                maxW={20}
-                value={parseInt(player3Score)}
-                defaultValue={0}
-                min={0}
-                onChange={setPlayer3Score}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </h1>
-          </div>
-          <div className="player4">
-            <h1>
-              Player 4:{player4} Score:
-              <NumberInput
-                size="sm"
-                maxW={20}
-                value={parseInt(player4Score)}
-                defaultValue={0}
-                min={0}
-                onChange={setPlayer4Score}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-            </h1>
-          </div>
-          <button className="addScores" onClick={addHoleOne}>
-            Save Scores
-          </button>
-        </Box>
-      </div>
+      <Center>
+        <div className="hole1 scores">
+          <Box>
+            <div className="holeNumber">
+              <h1>Hole 1</h1>
+            </div>
+            <div className="player1">
+              <h1>
+                Player 1:{player1} Score:
+                <NumberInput
+                  className="player1Score"
+                  size="sm"
+                  maxW={20}
+                  value={parseInt(player1Score)}
+                  defaultValue={0}
+                  min={0}
+                  onChange={setPlayer1Score}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </h1>
+            </div>
+            <div className="player2">
+              <h1>
+                Player 2:{player2} Score:
+                <NumberInput
+                  className="player2Score"
+                  size="sm"
+                  maxW={20}
+                  value={parseInt(player2Score)}
+                  defaultValue={0}
+                  min={0}
+                  onChange={setPlayer2Score}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </h1>
+            </div>
+            <div className="player3">
+              <h1>
+                Player 3:{player3} Score:
+                <NumberInput
+                  className="player3Score"
+                  size="sm"
+                  maxW={20}
+                  value={parseInt(player3Score)}
+                  defaultValue={0}
+                  min={0}
+                  onChange={setPlayer3Score}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </h1>
+            </div>
+            <div className="player4">
+              <h1>
+                Player 4:{player4} Score:
+                <NumberInput
+                  className="player4Score"
+                  size="sm"
+                  maxW={20}
+                  value={parseInt(player4Score)}
+                  defaultValue={0}
+                  min={0}
+                  onChange={setPlayer4Score}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+              </h1>
+            </div>
+            <button className="addScores" onClick={addHoleOne}>
+              Save Scores
+            </button>
+          </Box>
+        </div>
+      </Center>
 
       {/* ----------------HOLE TWO CARD--------------- */}
-
+    <Center>
       <div className="hole2 scores">
         <Box>
           <div className="holeNumber">
@@ -1144,6 +1154,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score2)}
@@ -1162,6 +1173,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score2)}
@@ -1180,6 +1192,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score2)}
@@ -1198,6 +1211,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score2)}
@@ -1217,9 +1231,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*    ------------------ HOLE THREE CARD --------------- */}
-
+    <Center>
       <div className="hole3 scores">
         <Box>
           <div className="holeNumber">
@@ -1229,6 +1243,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score3)}
@@ -1247,6 +1262,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score3)}
@@ -1265,6 +1281,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score3)}
@@ -1283,6 +1300,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score3)}
@@ -1302,9 +1320,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*   --------------- HOLE FOUR CARD ----------------- */}
-
+    <Center>
       <div className="hole4 scores">
         <Box>
           <div className="holeNumber">
@@ -1314,6 +1332,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score4)}
@@ -1332,6 +1351,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score4)}
@@ -1350,6 +1370,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score4)}
@@ -1368,6 +1389,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score4)}
@@ -1387,9 +1409,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*    ---------------- HOLE FIVE CARD ---------------- */}
-
+    <Center>
       <div className="hole5 scores">
         <Box>
           <div className="holeNumber">
@@ -1399,6 +1421,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score5)}
@@ -1417,6 +1440,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score5)}
@@ -1435,6 +1459,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score5)}
@@ -1453,6 +1478,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score5)}
@@ -1472,9 +1498,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*        ------------------ HOLE SIX CARD ------------------- */}
-
+    <Center>
       <div className="hole6 scores">
         <Box>
           <div className="holeNumber">
@@ -1484,6 +1510,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score6)}
@@ -1502,6 +1529,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score6)}
@@ -1520,6 +1548,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score6)}
@@ -1538,6 +1567,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score6)}
@@ -1557,9 +1587,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*      -------------- HOLE SEVEN CARD ----------------  */}
-
+    <Center>
       <div className="hole7 scores">
         <Box>
           <div className="holeNumber">
@@ -1569,6 +1599,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score7)}
@@ -1587,6 +1618,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score7)}
@@ -1605,6 +1637,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score7)}
@@ -1623,6 +1656,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score7)}
@@ -1642,9 +1676,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     ------------- HOLE EIGHT CARD ------------------ */}
-
+    <Center>
       <div className="hole8 scores">
         <Box>
           <div className="holeNumber">
@@ -1654,6 +1688,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score8)}
@@ -1672,6 +1707,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score8)}
@@ -1690,6 +1726,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score8)}
@@ -1708,6 +1745,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score8)}
@@ -1727,9 +1765,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*      --------------- HOLE NINE CARD ----------------- */}
-
+    <Center>
       <div className="hole9 scores">
         <Box>
           <div className="holeNumber">
@@ -1739,6 +1777,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score9)}
@@ -1757,6 +1796,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score9)}
@@ -1775,6 +1815,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score9)}
@@ -1793,6 +1834,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score9)}
@@ -1812,9 +1854,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*      -------------- HOLE TEN CARD -------------- */}
-
+    <Center>
       <div className="hole10 scores">
         <Box>
           <div className="holeNumber">
@@ -1824,6 +1866,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score10)}
@@ -1842,6 +1885,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score10)}
@@ -1860,6 +1904,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score10)}
@@ -1878,6 +1923,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score10)}
@@ -1897,9 +1943,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
-      {/*     --------------- HOLE ELEVEN CARD ------------ */}
-
+    </Center>
+      {/*      --------------- HOLE ELEVEN CARD ------------ */}
+    <Center>
       <div className="hole11 scores">
         <Box>
           <div className="holeNumber">
@@ -1909,6 +1955,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score11)}
@@ -1927,6 +1974,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score11)}
@@ -1945,6 +1993,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score11)}
@@ -1963,6 +2012,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score11)}
@@ -1982,9 +2032,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*       ------------------- HOLE TWELVE CARD ------------------ */}
-
+    <Center>
       <div className="hole12 scores">
         <Box>
           <div className="holeNumber">
@@ -1994,6 +2044,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score12)}
@@ -2012,6 +2063,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score12)}
@@ -2030,6 +2082,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score12)}
@@ -2048,6 +2101,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score12)}
@@ -2067,9 +2121,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     ----------------- HOLE THIRTEEN CARD ------------      */}
-
+    <Center>
       <div className="hole13 scores">
         <Box>
           <div className="holeNumber">
@@ -2079,6 +2133,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score13)}
@@ -2097,6 +2152,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score13)}
@@ -2115,6 +2171,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score13)}
@@ -2133,6 +2190,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score13)}
@@ -2152,9 +2210,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*      -------------------  HOLE FOURTEEN CARD --------------------       */}
-
+    <Center>
       <div className="hole14 scores">
         <Box>
           <div className="holeNumber">
@@ -2164,6 +2222,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score14)}
@@ -2182,6 +2241,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score14)}
@@ -2200,6 +2260,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score14)}
@@ -2218,6 +2279,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score14)}
@@ -2237,9 +2299,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     ----------------- HOLE FIFTEEN CARD ---------------------      */}
-
+    <Center>
       <div className="hole15 scores">
         <Box>
           <div className="holeNumber">
@@ -2249,6 +2311,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score15)}
@@ -2267,6 +2330,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score15)}
@@ -2285,6 +2349,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score15)}
@@ -2303,6 +2368,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score15)}
@@ -2322,9 +2388,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     ------------------ HOLE SIXTEEN CARD ----------------     */}
-
+    <Center>
       <div className="hole16 scores">
         <Box>
           <div className="holeNumber">
@@ -2334,6 +2400,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score16)}
@@ -2352,6 +2419,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score16)}
@@ -2370,6 +2438,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score16)}
@@ -2388,6 +2457,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score16)}
@@ -2407,9 +2477,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     --------------- HOLE SEVENTEEN CARD -------------    */}
-
+    <Center>
       <div className="hole17 scores">
         <Box>
           <div className="holeNumber">
@@ -2419,6 +2489,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score17)}
@@ -2437,6 +2508,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score17)}
@@ -2455,6 +2527,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score17)}
@@ -2473,6 +2546,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score17)}
@@ -2492,9 +2566,9 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
-
+    </Center>
       {/*     ------------------ HOLE EIGHTEEN CARD ----------------    */}
-
+    <Center>
       <div className="hole18 scores">
         <Box>
           <div className="holeNumber">
@@ -2504,6 +2578,7 @@ export default function Scorecard() {
             <h1>
               Player 1:{player1} Score:
               <NumberInput
+                className="player1Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player1Score18)}
@@ -2522,6 +2597,7 @@ export default function Scorecard() {
             <h1>
               Player 2:{player2} Score:
               <NumberInput
+                className="player2Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player2Score18)}
@@ -2540,6 +2616,7 @@ export default function Scorecard() {
             <h1>
               Player 3:{player3} Score:
               <NumberInput
+                className="player3Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player3Score18)}
@@ -2558,6 +2635,7 @@ export default function Scorecard() {
             <h1>
               Player 4:{player4} Score:
               <NumberInput
+                className="player4Score"
                 size="sm"
                 maxW={20}
                 value={parseInt(player4Score18)}
@@ -2577,6 +2655,7 @@ export default function Scorecard() {
           </button>
         </Box>
       </div>
+    </Center>
     </>
   );
 }
