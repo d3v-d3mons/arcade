@@ -22,18 +22,20 @@ import { Link } from "react-router-dom";
 
 export default function Homepage() {
   const [beginCreate] = useMutation(BEGIN_CREATE);
+  const [error, setError] = useState(null);
   const newGameHandler = async () => {
     if (!partyName || !gameType || !course) {
-      alert("you must fill all fields");
+      setError("Must fill all fields");
     }
-    setComplete(true);
-    return await beginCreate({
+    await beginCreate({
       variables: {
         partyName: partyName,
         gameType: gameType,
         course: course,
       },
     });
+    setComplete(true);
+    window.location.replace("/newplayer");
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -50,6 +52,11 @@ export default function Homepage() {
             <Center>
               <Button className="createGameBtn" onClick={onOpen}>
                 Create New Game
+              </Button>
+            </Center>
+            <Center>
+              <Button className="addPlyr">
+                <Link to="/newplayer">Add Players</Link>
               </Button>
             </Center>
             <Modal isOpen={isOpen} onClose={onClose}>
@@ -95,6 +102,13 @@ export default function Homepage() {
                         </option>
                       </Select>
                     </Stack>
+                    {error && (
+                      <Center>
+                        <div className="danger">
+                          <h1>{error}</h1>
+                        </div>
+                      </Center>
+                    )}
                     <Button
                       type="click"
                       className="submitBtn"
@@ -129,7 +143,7 @@ export default function Homepage() {
   } else {
     return (
       <Center>
-        <Button>
+        <Button className="newPlayerBtn">
           <Link to="/newplayer">Add Players</Link>
         </Button>
       </Center>

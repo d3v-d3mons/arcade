@@ -61,7 +61,7 @@ const typeDefs = gql`
         beginCreate(partyName: String!, gameType: String!, course: String!): Game
         addPlayers(partyName: String!, name: String!, score: Int!): Game
         updateGame(name: String!, handGrenades: Int!, mulligans: Int!, handicap: Int!): Game
-        addScore1(name: String!, score: String!): Player
+        addScore1(name: String!, score: Int!): Player
         addScore2(name: String!, score: String!): Player
         addScore3(name: String!, score: String!): Player
         addScore4(name: String!, score: String!): Player

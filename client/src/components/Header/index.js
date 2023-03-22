@@ -32,19 +32,19 @@ export default function Header() {
   const [passwordLogin, setPasswordLogin] = useState("");
   const [addUser] = useMutation(ADD_USER);
   const [loginUser] = useMutation(LOGIN);
+  const [error, setError] = useState(null);
 
   const handleNewUserForm = async (e) => {
     e.preventDefault();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      console.log("not valid email");
-      // add error display later
+      setError("not a valid email!");
+      return;
     }
 
     if (!firstName || !lastName || !nickname || !email || !password) {
-      console.log("all fields are required bud");
-      // add error display later
+      setError("all fields are required!");
       return;
     }
     try {
@@ -61,7 +61,7 @@ export default function Header() {
       auth.login(token);
       window.location.assign("");
     } catch (err) {
-      alert(err);
+      return setError(err);
     }
   };
 
@@ -70,12 +70,12 @@ export default function Header() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailLogin)) {
-      console.log("not valid email");
-      // add error display later
+      setError("not a valid email");
+      return;
     }
 
     if (!emailLogin || !passwordLogin) {
-      console.log("please fill all fields");
+      setError("must fill all fields")
       return;
     }
 
@@ -89,8 +89,7 @@ export default function Header() {
       const token = mutationResponse.data.login.token;
       auth.login(token);
     } catch (err) {
-      console.error(err);
-      // add error handling and display later
+      return setError(err);
     }
   };
 
@@ -168,7 +167,7 @@ export default function Header() {
                       <Input
                         value={passwordLogin}
                         onChange={(e) => setPasswordLogin(e.target.value)}
-                        type="text"
+                        type="password"
                         className="loginPassword"
                         placeholder="enter password here"
                       />
@@ -180,6 +179,7 @@ export default function Header() {
                         Login
                       </Button>
                     </form>
+                    {error && <h1 className="danger">{error}</h1>}
                     <ModalHeader>Create Account</ModalHeader>
                     <form onSubmit={handleNewUserForm}>
                       <Input

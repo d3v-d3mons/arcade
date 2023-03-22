@@ -112,11 +112,16 @@ export default function NewPlayer() {
     );
   } else {
     return (
+      <>
+      <Center>
+        <div className="go">Head to scorecard and tee off!</div>
+      </Center>
       <Center>
         <Button className="scorecardDirect">
-          <Link to="/scorecard"></Link>
+          <Link to="/scorecard">Scorecard</Link>
         </Button>
       </Center>
+      </>
     );
   }
 }

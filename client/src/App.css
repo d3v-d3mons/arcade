@@ -1,3 +1,9 @@
+.addPlyr {
+  background-color: #565c69;
+  border: solid;
+  border-color: black;
+  margin-top: .5rem;
+}
 
 body {
   color:#ffffff;
@@ -133,6 +139,20 @@ footer {
   color: black;
 }
 
+.newPlayerBtn {
+  margin-top: .5rem;
+  background-color: #565c69;
+  border: solid;
+  border-color: black;
+}
+
+.go {
+  background-color: #00a028;
+  color: black;
+  border: solid;
+  border-radius: .7rem;
+}
+
 /*  ADD PLAYER  */
 .addPlayer {
   background-color: #00a028; opacity: .85;
@@ -160,4 +180,11 @@ footer {
   color: black;
   text-decoration: underline;
   font-weight: 400;
+}
+
+.scorecardDirect {
+  margin-top: 1rem;
+  background-color: #565c69;
+  border: solid;
+  border-color: black;
 }
